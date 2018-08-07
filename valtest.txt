@@ -1,0 +1,30 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ValtechTechTest {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\data\\programming\\selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		String valUrl = "http://www.valtech.com";
+		
+		driver.get(valUrl);
+		driver.manage().window().maximize();
+		
+		WebElement cookieBtn = driver.findElement(By.id("CybotCookiebotDialogBodyButtonAccept"));
+		cookieBtn.click();
+		
+		WebElement iconMenuBtn = driver.findElement(By.xpath("/html/body/nav/div[1]/button"));
+		iconMenuBtn.click();
+		
+
+	}
+
+}
